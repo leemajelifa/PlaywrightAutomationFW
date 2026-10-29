@@ -34,7 +34,7 @@ test("Product Details Functionality Testing", async ({homePage, searchResultsPag
     expect.soft(prodInfo.get("Product Price")).toBe("$2,000.00")
 })
 
-test("Verify Logo Visibility test", async({productInfoPage})=>{
+test("Verify Logo Visibility test @sanity", async({productInfoPage})=>{
     let isVisible:Boolean=await productInfoPage.isLogoVisible()
     expect(isVisible).toBe(true)
 

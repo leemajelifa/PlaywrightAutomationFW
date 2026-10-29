@@ -8,7 +8,7 @@ test.beforeEach( async ({loginPage})=>{
     await loginPage.doLogin(process.env.USER_NAME!,process.env.PASSWORD!)
 })
 
-test("Verify Search Header Functionality Test", async({homePage,searchResultsPage})=>{
+test("Verify Search Header Functionality Test @sanity", async({homePage,searchResultsPage})=>{
     await homePage.doSearch("macbook")
 
     let headerSearchPage:string=await searchResultsPage.getSearchResultsPageHeader()
