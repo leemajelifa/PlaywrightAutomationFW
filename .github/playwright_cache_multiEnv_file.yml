@@ -1,0 +1,85 @@
+name: Playwright Tests with MultiEnv
+
+on:
+  push:
+    branches: [main]
+
+  pull_request:
+    branches: [main]
+
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Select Environment'
+        required: true
+        default: 'qa'
+        type: choice
+        options:
+          - qa
+          - stage
+          - dev
+          - uat
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    # Selected environment when manually triggered.
+    # Defaults to qa for push/pull_request events.
+    environment: ${{ github.event.inputs.environment || 'qa' }}
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      # Cache Playwright browsers
+      - name: Cache Playwright Browsers
+        id: playwright-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Dependencies
+        run: npm ci
+
+      # Install browsers only when cache is missing
+      - name: Install Playwright Browsers
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium
+
+      # Install OS dependencies when browser cache exists
+      - name: Install Playwright OS Dependencies (Cached)
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
+
+      - name: Display Selected Environment
+        run: echo "Running against ${{ github.event.inputs.environment || 'qa' }}"
+
+      - name: Run Playwright Tests
+        env:
+          ENV: ${{ github.event.inputs.environment || 'qa' }}
+        run: npx playwright test --project=chromium
+
+      - name: Upload HTML Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-html-report
+          path: reports/html-report/
+          retention-days: 30
+
+      - name: Upload Allure Results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results
+          path: allure-results/
+          retention-days: 30
