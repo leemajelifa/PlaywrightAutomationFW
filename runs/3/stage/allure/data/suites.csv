@@ -1,0 +1,4 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","5683","Verify Search Header Functionality Test @sanity","chromium","2026-10-29","passed","2026-10-29","","searchPage.spec.ts","",""
+"","5471","Verify Logo Visibility Test @sanity","chromium","2026-10-29","passed","2026-10-29","","productInfo.spec.ts","",""
+"","5453","Actual Login Test @sanity","chromium","2026-10-29","passed","2026-10-29","","loginPage.spec.ts","",""

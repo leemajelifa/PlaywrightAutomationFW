@@ -1,0 +1,8 @@
+Searching for Product : macbook
+Map(5) {
+  'Brand' => 'Apple',
+  'Product Code' => 'Product 18',
+  'Reward Points' => '800',
+  'Availability' => 'In Stock',
+  'Product Price' => '$2,000.00'
+}

@@ -1,0 +1,2 @@
+Searching for Product : macbook
+The count of the product name macbook is 3

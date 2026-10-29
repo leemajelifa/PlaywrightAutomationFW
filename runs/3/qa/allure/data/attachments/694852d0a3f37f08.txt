@@ -1,0 +1,2 @@
+Searching for Product : macbook
+the product title of macbook is MacBook Air and the count of images 4

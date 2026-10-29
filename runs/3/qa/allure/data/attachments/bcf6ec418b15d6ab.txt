@@ -1,0 +1,27 @@
+APIResponse: 404 Not Found
+  Date: Thu, 29 Oct 2026 11:15:02 GMT
+  Content-Type: application/json; charset=utf-8
+  Content-Length: 32
+  Connection: keep-alive
+  Cache-Control: no-cache
+  content-security-policy-report-only: default-src 'self'; script-src 'self' https://pagead2.googlesyndication.com 'nonce-AH+Px8xFpNBSAMhT08/nIA=='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://pagead2.googlesyndication.com https://ep1.adtrafficquality.google; frame-src https://googleads.g.doubleclick.net https://ep2.adtrafficquality.google https://www.google.com; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+  feature-policy: camera 'none'; gyroscope 'none'; microphone 'none'; usb 'none'; fullscreen 'self'
+  referrer-policy: strict-origin-when-cross-origin
+  strict-transport-security: max-age=63072000; includeSubDomains
+  vary: Origin
+  x-content-type-options: nosniff
+  x-frame-options: SAMEORIGIN
+  x-permitted-cross-domain-policies: none
+  x-ratelimit-limit: 300
+  x-ratelimit-remaining: 299
+  x-ratelimit-reset: 0
+  x-xss-protection: 0
+  Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+  cf-cache-status: DYNAMIC
+  Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=RxrUgHb93h1XC60eZLAx34eHAJYKZcHaKlRurEkPf6zSmWzyN%2Bx57ya%2FALmOfCaZVyiInGaxxUbRQ5tIACasUADALKL%2FXSEA00kxIUuDX7%2Fc9j9M8%2FtNhc6dCiJh5%2Bs%3D"}]}
+  Server: cloudflare
+  CF-RAY: a521c2940de41754-SJC
+  alt-svc: h3=":443"; ma=86400
+{ message: 'Resource not found' }
+404
+Not Found

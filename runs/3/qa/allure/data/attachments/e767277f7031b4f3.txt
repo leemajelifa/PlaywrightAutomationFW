@@ -1,0 +1,2 @@
+Searching for Product : iphone
+The count of the product name iphone is 1
