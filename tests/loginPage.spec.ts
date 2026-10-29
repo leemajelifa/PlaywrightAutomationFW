@@ -9,7 +9,7 @@ test.beforeEach(async ({loginPage})=>{
 
 })
 
-test('Login Page Title Test @sanity', async({loginPage})=>{
+test('Login Page Title Test', async({loginPage})=>{
 
     let title=await loginPage.getLoginPageTitle()
     expect(title).toBe("Account Login")

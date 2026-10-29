@@ -9,10 +9,10 @@ test.beforeEach( async ({loginPage})=>{
 })
 
 test("Verify Search Header Functionality Test @sanity", async({homePage,searchResultsPage})=>{
-    await homePage.doSearch("macbook")
+    await homePage.doSearch("Macbook")
 
     let headerSearchPage:string=await searchResultsPage.getSearchResultsPageHeader()
-    expect(headerSearchPage).toBe('Search - macbook')
+    expect(headerSearchPage).toBe('Search - Macbook')
     
     //best only if title has no xpath to locate 
     // let headerSearchPage:string=await searchResultsPage.getSearchResultsPageTitle()
