@@ -23,7 +23,7 @@ export class CheckOutPage extends BasePage
 
     async clickShippingAddress():Promise<Array<string>>
     {
-        return await this.shippingAddress.selectOption({value:"2"})
+        return await this.shippingAddress.selectOption({index:1})
 
     }
 
