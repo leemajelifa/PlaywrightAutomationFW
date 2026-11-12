@@ -1,4 +1,4 @@
-import {Locator, Page} from '@playwright/test'
+import {Locator, Page, expect} from '@playwright/test'
 import { BasePage } from './BasePage.js'
 
 export class LoginPage extends BasePage{
@@ -37,7 +37,16 @@ export class LoginPage extends BasePage{
         await this.password.fill(password)
         await this.loginButton.click()
 
-        await this.page.waitForTimeout(2000)
+        // await this.page.waitForTimeout(2000)
+
+        await expect(this.page).toHaveURL(/account\/account/)
+    }
+
+    async doLoginWithoutAssertion(username:string,password:string):Promise<void>
+    {
+        await this.emailId.fill(username)
+        await this.password.fill(password)
+        await this.loginButton.click()
     }
 
     async getLoginErrorMessage():Promise<string>

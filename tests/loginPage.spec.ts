@@ -47,10 +47,10 @@ let testData:Record<string, string>[]=CsvHelper.readCsv('src/testData/loginData.
 for (let data of testData)
 {
     test(`Negative Login Test with username: ${data.username} and paswd:${data.password}` , async({loginPage})=>{
-    await loginPage.doLogin(data.username,data.password)
+    await loginPage.doLoginWithoutAssertion(data.username,data.password)
     let errorMessage:string=await loginPage.getLoginErrorMessage()
     
-    expect(errorMessage).toContain("Warning: No match for E-Mail Address and/or Password.")
+     expect(errorMessage).toContain("Warning: No match for E-Mail Address and/or Password.")
 
 })
 }
@@ -62,7 +62,7 @@ let excelTestData:Record<string,string>[]= ExcelHelper.readExcel('src/testData/t
 for(let data of excelTestData){
 
     test(`negative login test for excel sheet with username: ${data.username} and paswd:${data.password}`, async({loginPage})=>{
-        await loginPage.doLogin(data.username,data.password)
+        await loginPage.doLoginWithoutAssertion(data.username,data.password)
         let errorMessage=await loginPage.getLoginErrorMessage()
         expect(errorMessage).toContain("Warning: No match for E-Mail Address and/or Password.")
     })
@@ -74,7 +74,7 @@ let jsonData:Record<string, string>[]=JsonHelper.readJson('src/testData/jsonData
 
 for(let data of jsonData){
     test(`negative login test for json file with username: ${data.username} and paswd:${data.password}`, async({loginPage})=>{
-        await loginPage.doLogin(data.username,data.password)
+        await loginPage.doLoginWithoutAssertion(data.username,data.password)
         let errorMessage=await loginPage.getLoginErrorMessage()
         expect(errorMessage).toContain("Warning: No match for E-Mail Address and/or Password.")
     })

@@ -2,6 +2,7 @@
 
 import { CsvHelper } from 'src/utils/csvUtils.js'
 import {test,expect} from '../src/fixtures/pageFixtures.js'
+import { SearchResultsPage } from 'src/pages/SearchResultsPage.js'
 
 test.beforeEach( async ({loginPage})=>{
     await loginPage.goToLoginPage()
@@ -37,9 +38,9 @@ for (let data of searchItem){
     test(`Verify multiple Data Search Functionality for ${data.searchKey} `, async({searchResultsPage,homePage})=>{
     
         await homePage.doSearch(data.searchKey)
-        let searchCount:Number=await searchResultsPage.getSearchResultCount()
-        console.log(`The count of the product name ${data.searchKey} is ${searchCount}`)
-        expect(searchCount).toEqual(Number(data.count))
+        // let searchCount:Number=await searchResultsPage.getSearchResultCount()
+        // console.log(`The count of the product name ${data.searchKey} is ${searchCount}`)
+        await searchResultsPage.verifySearchResultCount(Number(data.count))
        })
     }
 

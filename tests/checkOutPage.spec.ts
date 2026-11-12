@@ -15,7 +15,7 @@ test("Verifying Selection Of Shipping Address", async({page,homePage,searchResul
     await checkOutPage.clickPaymentMethod()
     await checkOutPage.clickConfirmOrder()
 
-    await page.waitForTimeout(5000)
+    // await page.waitForTimeout(5000)
     
     let title:string=await checkOutPage.getPageTitle()
     console.log(title)

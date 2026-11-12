@@ -1,4 +1,4 @@
-import { Page } from "@playwright/test";
+import { Page , expect} from "@playwright/test";
 import { BasePage } from "./BasePage.js";
 
 export class CheckOutPage extends BasePage
@@ -37,14 +37,14 @@ export class CheckOutPage extends BasePage
     async clickPaymentMethod():Promise<void>
     {
         await this.paymentMethod.click()
-        // await this.shippingMethodOption.waitFor({timeout:3000})
+
         await this.paymentMethodOption.click()
     }
 
     async clickConfirmOrder():Promise<void>
     {
         await this.confirmOrder.click()
-        await this.confirmOrder.waitFor({timeout:5000})
+        await expect(this.page).toHaveTitle('Your order has been placed!')
     }
 
 

@@ -1,4 +1,4 @@
-import { Locator, Page } from "@playwright/test"
+import { Locator, Page, expect } from "@playwright/test"
 import {BasePage} from "./BasePage.js"
 
 export class SearchResultsPage extends BasePage{
@@ -25,6 +25,11 @@ export class SearchResultsPage extends BasePage{
     async getSearchResultCount():Promise<Number>
     {
         return await this.searchResults.count()
+    }
+
+    async verifySearchResultCount(expectedCount:number):Promise<void>
+    {
+       return  await expect(this.searchResults).toHaveCount(expectedCount)
     }
 
     async selectAndClickProduct(productName:string):Promise<void>
