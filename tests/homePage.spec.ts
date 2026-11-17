@@ -1,14 +1,18 @@
 import {test,expect} from '../src/fixtures/pageFixtures.js'
 
+//for the tests in this file, don’t use the saved session. Start with an empty browser
+test.use({ storageState: { cookies: [], origins: [] } })
+
 test.beforeEach(async({loginPage})=>{
 
-    await loginPage.goToLoginPage()
+   await loginPage.goToLoginPage()
    await loginPage.doLogin(process.env.USER_NAME!,process.env.PASSWORD!)
 })
 
 test("Home Page Title Test", async({homePage})=>{
 
    let hometitle:string=await homePage.getHomePageTitle()
+   
    expect(hometitle).toBe("My Account")
 })
 

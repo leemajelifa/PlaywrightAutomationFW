@@ -3,6 +3,8 @@ import {test,expect} from '../src/fixtures/pageFixtures.js'
 import {ExcelHelper} from '../src/utils/excelUtils.js'
 import {JsonHelper} from '../src/utils/jsonUtils.js'
 
+test.use({ storageState: { cookies: [], origins: [] } })
+
 test.beforeEach(async ({loginPage})=>{
    
     await loginPage.goToLoginPage()

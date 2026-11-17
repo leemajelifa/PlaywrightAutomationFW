@@ -1,8 +1,10 @@
 import {test, expect} from '../src/fixtures/pageFixtures.js'
 
-test.beforeEach(async ({loginPage})=>{
-    await loginPage.goToLoginPage()
-    await loginPage.doLogin(process.env.USER_NAME!,process.env.PASSWORD!)
+test.beforeEach(async ({homePage})=>{
+
+    await homePage.goToHomePage()
+    // await loginPage.goToLoginPage()
+    // await loginPage.doLogin(process.env.USER_NAME!,process.env.PASSWORD!)
 })
 
 test("Verifying Selection Of Shipping Address", async({page,homePage,searchResultsPage,productInfoPage,checkOutPage})=>{

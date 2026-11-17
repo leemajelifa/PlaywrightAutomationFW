@@ -18,6 +18,10 @@ export class HomePage extends BasePage
         // this.searchIcon=page.locator("button[class*='btn-light']")
     }
 
+    async goToHomePage():Promise<void>
+    {
+        await this.page.goto('en-gb')
+    }
 
     async getHomePageTitle():Promise<string>
     {

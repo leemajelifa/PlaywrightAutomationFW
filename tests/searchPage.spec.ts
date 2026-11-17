@@ -4,9 +4,11 @@ import { CsvHelper } from 'src/utils/csvUtils.js'
 import {test,expect} from '../src/fixtures/pageFixtures.js'
 import { SearchResultsPage } from 'src/pages/SearchResultsPage.js'
 
-test.beforeEach( async ({loginPage})=>{
-    await loginPage.goToLoginPage()
-    await loginPage.doLogin(process.env.USER_NAME!,process.env.PASSWORD!)
+test.beforeEach( async ({homePage})=>{
+    await homePage.goToHomePage()
+
+//     await loginPage.goToLoginPage()
+//     await loginPage.doLogin(process.env.USER_NAME!,process.env.PASSWORD!)
 })
 
 test("Verify Search Header Functionality Test @sanity", async({homePage,searchResultsPage})=>{

@@ -85,6 +85,7 @@ playwright/.cache/
 storageState/
 auth/
 *.auth.json
+playwright/.auth
 
 # API Test Generated Files
 #########################################################
